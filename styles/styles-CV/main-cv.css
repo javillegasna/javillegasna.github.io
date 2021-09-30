@@ -1,10 +1,11 @@
 :root{
     --header-h:34rem;
+    --width-colum: 90vw ;
     --color-primary: #253142;
-    --color-secondary:#495c778f;
+    --color-secondary:#00000042;
     --color-tertiary:#3D3229;
-    --color-titles:#253142;
-    --color-font: white
+    --color-font: #636c77;
+    --color-titles :#abafb3;
 }
 * {
     box-sizing: border-box;
@@ -55,20 +56,44 @@ main{
     max-width: 100vw;
     background-color: var(--color-primary);
 }
-main>section{
-    display: flex;
-    flex-wrap: wrap;
-    width: 90vw;
-    margin-top: 10rem;
+h2, h4{
+    text-align: center;
+    color: var(--color-titles);
+}
+main>article{
+    width: var(--width-colum);
+}
+article>section{
     background-color: var(--color-secondary);
     border-radius: 10rem;
+    width: var(--width-colum);
+    margin-top: 10rem;
 }
-
-section>h3{
-    color: var(--color-primary);
+.intro-name{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 .pict-foto{
     max-height: 100rem;
     max-width: 100rem;
     border-radius: 50%;
+}
+.name-text>p{
+    text-align: center;
+}
+.intro-des>p{
+    text-align: center;
+}
+.des-cont{
+    width: var(--width-colum);
+    display: flex;
+    justify-content: center;
+}
+.pict-proteus, .pict-easyEDA, .pict-git, .pict-github,
+.pict-java, .pict-python, .pict-sql, .pict-ubuntu,
+.pict-solid, .pict-fusion, .pict-autocad{
+    max-width: 40rem;
+    max-height: 40rem;
+    margin: 0 4rem;
 }

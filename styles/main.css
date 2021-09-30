@@ -16,8 +16,7 @@
 html{
     font-size: 6.25%;
 }
-body
-{
+body{
     min-width: var(--bhf-w);
 }
 /* header */
@@ -37,7 +36,6 @@ header{
     max-width: 30rem;
 }
 .nav{
-    font-size: 16rem;
     width: 90vw;
     display: flex;
     justify-content: flex-end;
