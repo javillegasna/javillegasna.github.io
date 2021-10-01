@@ -22,8 +22,20 @@ body
     font-size: 16rem;
     color: var(--color-font);
 }
+h1{
+    font-size: 29rem;
+    margin: 0rem;
+}
+h2{
+    font-size: 21rem;
+}
+a{
+    text-decoration: none;
+    color: var(--color-font);
+}
 header{
     background-color: white;
+    height: var(--header-h);
     min-height: var(--header-h);
     display: flex;
 }
@@ -32,7 +44,7 @@ header{
     align-items: center;
     width: 10vw;
 }
-.logo{
+.pict-logo__img{
     max-height: 30rem;
     max-width: 30rem;
 }
@@ -42,7 +54,7 @@ header{
     justify-content: flex-end;
     align-items: center;
 }
-.icon-github, .icon-linkedin, .icon-facebook{
+.nav__icon{
     max-height: 20rem;
     margin: 0 5rem;
 }
@@ -56,44 +68,85 @@ main{
     max-width: 100vw;
     background-color: var(--color-primary);
 }
-h2, h4{
+.title{
     text-align: center;
     color: var(--color-titles);
 }
-main>article{
+.title--header{
+    background-color: #00000070;
+    border-top-left-radius:     10rem;
+    border-top-right-radius:    10rem;
+}
+.colum{
     width: var(--width-colum);
 }
-article>section{
+.colum__sect{
     background-color: var(--color-secondary);
     border-radius: 10rem;
     width: var(--width-colum);
     margin-top: 10rem;
 }
-.intro-name{
+.colum__sect--name{
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.pict-foto{
+.pict-ID__img{
     max-height: 100rem;
     max-width: 100rem;
     border-radius: 50%;
 }
-.name-text>p{
+.text--center{
     text-align: center;
 }
-.intro-des>p{
-    text-align: center;
-}
-.des-cont{
+.grap-ul{
     width: var(--width-colum);
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
 }
-.pict-proteus, .pict-easyEDA, .pict-git, .pict-github,
-.pict-java, .pict-python, .pict-sql, .pict-ubuntu,
-.pict-solid, .pict-fusion, .pict-autocad{
+.grap-ul__col{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+.grap-li{
+    padding: 10rem 0;
+}
+.grap-li__icon{
     max-width: 40rem;
     max-height: 40rem;
     margin: 0 4rem;
+}
+.block-title{
+    display: flex;
+    justify-content:space-around;
+}
+.block-title__degree{
+    display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.block-title__date{
+    display: flex;
+    flex-direction: column;
+}
+.date::before{
+    content: " | ";
+}
+.ext-link{
+    display: inline-flex;
+}
+.ext-link__text{
+    display: inline-flex;
+    width: calc(var(--width-colum) - 5vw);
+}
+.ext-link__icon{
+    width: 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ext-link__icon:hover{
+    background-color: var(--color-titles);
+    border-radius: 5rem;
 }

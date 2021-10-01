@@ -18,6 +18,7 @@ html{
 }
 body{
     min-width: var(--bhf-w);
+    font-size: 16rem;
 }
 /* header */
 header{

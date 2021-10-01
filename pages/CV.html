@@ -11,85 +11,113 @@
 <body>
     <header>
         <picture class="pict-logo">
-            <a href="../index.html"><img class="logo" src="../assets/personal-Logo.png" title="Home" alt="Personal logo it's a J whit diferent colors into themself"></a>
+            <a href="../index.html"><img class="pict-logo__img" src="../assets/personal-Logo.png" title="Home" alt="Personal logo it's a J whit diferent colors into themself"></a>
         </picture>
         <nav class="nav">
-            <picture class="icon">
-                <a href="https://github.com/javillegasna" target="_blank"><img class="icon-github" src="../assets/icons/icon-git.png" alt="Github icon whit link to personal Github profile"></a>
+            <picture class="nav__pict">
+                <a href="https://github.com/javillegasna" target="_blank"><img class="nav__icon" src="../assets/icons/icon-git.png" alt="Github icon whit link to personal Github profile"></a>
             </picture>
-            <picture class="icon">
-                <a href="https:www.linkedin.com/in/javiervillegasnaranjo" target="_blank" ><img class="icon-linkedin" src="../assets/icons/icon-Link.png" alt="Linkedin icon whit link to personal Linkedin profile"></a>
+            <picture class="nav__pict">
+                <a href="https:www.linkedin.com/in/javiervillegasnaranjo" target="_blank" ><img class="nav__icon" src="../assets/icons/icon-Link.png" alt="Linkedin icon whit link to personal Linkedin profile"></a>
             </picture>
-            <picture class="icon">
-                <a href="https://www.facebook.com/javier.villegas.3760" target="_blank" ><img class="icon-facebook" src="../assets/icons/icon-face.png"  alt="Facebok icon whit link to personal facebook profile"></a>
+            <picture class="nav__pict">
+                <a href="https://www.facebook.com/javier.villegas.3760" target="_blank" ><img class="nav__icon" src="../assets/icons/icon-face.png"  alt="Facebok icon whit link to personal facebook profile"></a>
             </picture>
         </nav>
     </header>
     <main> 
-        <article class="intro">
-            <section class="intro-name">
-                <picture class="name_pict">
+        <section class="colum colum--intro">
+            <article class="colum__sect colum__sect--name">
+                <picture class="pict-ID">
                     <source media="(min-width:100px)" srcset="../assets/images/Foto-M.jpeg">
-                    <img class="pict-foto" src="../assets/images/Foto-S.png" alt="personal photography">
+                    <img class="pict-ID__img" src="../assets/images/Foto-S.png" alt="personal photography">
                 </picture>
-                <article class="name-text">
-                    <h2>Javier Villegas</h2>
-                    <p>Ingeniero Junior</p>
-                </article>
-            </section>
-            <section class="intro-des">
-                <h2>Personal Profile</h2>
-                <p> Mechatrocis engieneer with competences in</p>
-                <h4>Electronic desingn</h4>
-                    <div class="des-cont">
-                        <picture class="cont_pict">
-                            <img class="pict-proteus" src="../assets/icons/icon-Proteus.png" alt="Poteus suite desing icon">
+                <section class="name-text">
+                    <h1 class="title">Javier Villegas</h1>
+                    <p class="text text--center">Ingeniero Junior</p>
+                </section>
+            </article>
+            <article class="colum__sect colum__sect--des">
+                <h1 class="title title--header">Personal Profile</h1>
+                <p class="text text--center"> Mechatronics engieneer with competences in</p>
+                <h2 class="title">Electronic Desingn</h2>
+                <section class="grap-ul">
+                    <picture class="grap-li">
+                        <img class="grap-li__icon" src="../assets/icons/icon-Proteus.png" alt="Poteus suite desing icon">
+                    </picture>
+                    <picture class="grap-li">
+                        <img class="grap-li__icon" src="../assets/icons/icon-EasyEDA.png" alt="Easy EDA icon">
+                    </picture>
+                    <picture class="grap-li">
+                        <img class="grap-li__icon" src="../assets/icons/icon-simu.png" alt="matlab simulink icon">
+                    </picture>
+                </section>
+                <h2 class="title">Sofware Development</h2>
+                <section class="grap-ul grap-ul--col">
+                    <div class="grap-ul__col">
+                        <picture class="grap-li">
+                            <img class="grap-li__icon" src="../assets/icons/icon-gi.png" alt="git icon">
                         </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-easyEDA" src="../assets/icons/icon-EasyEDA.png" alt="Easy EDA icon">
-                        </picture>
-                    </div>
-                    <h4>Sofware development</h4>
-                    <div class="des-cont">
-                        <picture class="cont_pict">
-                            <img class="pict-git" src="../assets/icons/icon-gi.png" alt="git icon">
-                        </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-github" src="../assets/icons/icon-github.png" alt="github icon">
-                        </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-java" src="../assets/icons/icon-java.png" alt="java icon">
-                        </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-python" src="../assets/icons/icon-python.png" alt="python icon">
-                        </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-sql" src="../assets/icons/icon-sql.png" alt="SQL icon">
-                        </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-ubuntu" src="../assets/icons/icon-ubuntu.png" alt="ubuntu icon">
+                        <picture class="grap-li">
+                            <img class="grap-li__icon" src="../assets/icons/icon-github.png" alt="github icon">
                         </picture>
                     </div>
-                    <h4>Mechanical Desing</h4>
-                    <div class="des-cont">
-                        <picture class="cont_pict">
-                            <img class="pict-solid" src="../assets/icons/icon-solid.png" alt="SolidWorks icon">
+                    <div class="grap-ul__col">
+                        <picture class="grap-li">
+                            <img class="grap-li__icon" src="../assets/icons/icon-java.png" alt="java icon">
                         </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-fusion" src="../assets/icons/icon-fusion.png" alt="fusion 360 icon">
-                        </picture>
-                        <picture class="cont_pict">
-                            <img class="pict-autocad" src="../assets/icons/icon-autocad.png" alt="autocad icon">
+                        <picture class="grap-li">
+                            <img class="grap-li__icon" src="../assets/icons/icon-python.png" alt="python icon">
                         </picture>
                     </div>
-            </section>
-        </article>
-        <article class="information" >
-            
-        </article>
-        <article class="experience">
+                    <div class="grap-ul__col"> 
+                        <picture class="grap-li">
+                            <img class="grap-li__icon" src="../assets/icons/icon-sql.png" alt="SQL icon">
+                        </picture>
+                        <picture class="grap-li">
+                            <img class="grap-li__icon" src="../assets/icons/icon-ubuntu.png" alt="ubuntu icon">
+                        </picture>   
+                    </div>
+                </section>
+                <h2 class="title">Mechanical Desing</h2>
+                <section class="grap-ul">
+                    <picture class="grap-li">
+                        <img class="grap-li__icon" src="../assets/icons/icon-solid.png" alt="SolidWorks icon">
+                    </picture>
+                    <picture class="grap-li">
+                        <img class="grap-li__icon" src="../assets/icons/icon-fusion.png" alt="fusion 360 icon">
+                    </picture>
+                    <picture class="grap-li">
+                        <img class="grap-li__icon" src="../assets/icons/icon-autocad.png" alt="autocad icon">
+                    </picture>
+                </section>
+            </article>
+        </section>
+        <section class="colum colum--exp">
+            <article class="colum__sect colum__sect--academic">
+                <hgroup class="back">
+                    <h1 class="title title--header">Academic Background</h1>
+                    <h2 class="title">International University of Ecuador</h2>
+                    <div class="block-title">
+                        <h3 class="block-title__degree">Mechatronic Engineering</h3>
+                        <div class="block-title__date"> 
+                            <time class="date" datetime="2015-09">October, 2015</time>
+                            <time class="date" datetime="2021-01">October, 2021</time>
+                        </div>
+                    </div>
+                </hgroup>
+                <ul>
+                    <li>Average grade: 83,62.</li>
+                    <li class="ext-link"><p class="ext-link__text">Thesis: Automation of strawberry production by hydroponic methods.</p> <a class="ext-link__icon" href="https://repositorio.uide.edu.ec/handle/37000/4681"> ⇗</a></li>
+                </ul>
+            </article>
+            <article class="colum__sect colum__sect--work">
 
-        </article>
+            </article>
+        </section>
+        <section class="colum colum--info" >
+            
+        </section>
     </main>
 </body>
 </html>
