@@ -54,10 +54,7 @@ header{
 .nav-list__item a:hover{
     color:gray;
 }
-.nav-list__item a:hover::after{
-    color: gray;
-    content: " | ";
-}
+
 /* main */
 main{
     background-color: var(--primary-color);

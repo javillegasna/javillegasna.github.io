@@ -71,14 +71,15 @@ header{
 }
 
 main{
+    width: 100%;
+    max-width: 100vw;
+    min-height: calc(100vh - var(--header-h));
+    background-color: var(--color-palete-L003);
+}
+.grid{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: calc(100vh - var(--header-h));
-    width: 100%;
-    max-width: 100vw;
-
-    background-color: var(--color-palete-L003);
 }
 .title{
     text-align: center;
@@ -89,16 +90,28 @@ main{
     border-top-right-radius:    10rem;
     background-color: var(--color-palete-L001);
 }
-.colum{
+.grid-el{
     width: var(--width-colum);
 }
-.colum__sect{
+.grid-el--intro{
+    grid-area: intr;
+}
+.grid-el--acad{
+    grid-area: acad;
+}
+.grid-el--exp{
+    grid-area: expe;
+}
+.grid-el--info{
+    grid-area: info;
+}
+.grid-el__sect{
     margin-top: 10rem;
     border-radius: 10rem;
     width: var(--width-colum);
     background-color: var(--color-palete-O001);
 }
-.colum__sect--name{
+.grid-el__sect--name{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -168,7 +181,7 @@ main{
 }
 .list-work__item{
     display:grid;
-    grid-template-columns: 15% 80%;
+    grid-template-columns: 17% 80%;
 }
 .list-work__icon{
     font-size: 15rem;
@@ -188,36 +201,47 @@ main{
     align-items: center;
 }
 @media(min-width: 600px){
-    main{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
+    .grid{
+        display: grid;
+        grid-template-areas: 'intr expe' 'acad expe' 'info info';
+        justify-items: center;
+        align-items: center;
     }
-    .colum, .colum__sect{
+    .grid-el, .grid-el__sect{
+        height: 99%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         width: calc(var(--width-colum) * 0.5);
+        
     }
-    .colum--info{
-        width: 100%;
-        display: flex;
+    .grid-el--acad{
         flex-direction: row;
+        align-items: flex-end;
+    }
+    .grid-el--info{
+        width: 100%;
+        flex-direction: row;
+        justify-items: center;
         justify-content: space-around;
     }
 }
 @media(min-width: 1200px){
-    main{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+    .grid{
+        display: grid;
+        grid-template-areas: 'intr expe info' 'intr expe acad';
     }
-    .colum, .colum__sect{
-        width: calc(var(--width-colum) * 0.35);
-    }
-
-    .colum--info{
-        width: calc(var(--width-colum) * 0.35);
+    .grid-el, .grid-el__sect{
+        height: 99%;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
+        justify-content: space-between;
+        width: calc(var(--width-colum) * 0.35);
     }
+    .grap-li__icon{
+        margin: 0 4rem;
+        max-width: 70rem;
+        max-height: 70rem;  
+    }
+    
 }
