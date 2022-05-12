@@ -1,8 +1,7 @@
+import Layout from "./layout/Layout";
 function App(): JSX.Element {
   return (
-    <>
-      <h1>Hello world</h1>
-    </>
+    <Layout render={<h1 className="content">Hello World</h1>}/>
   );
 }
 
