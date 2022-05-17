@@ -22,29 +22,15 @@
     <div class="logo">
       <img src="./assets/personal-Logo.png" alt="">
     </div>
-    <button class="nav.toggle" aria-label="toggle navigation">
+    <button class="nav-toggle" aria-label="toggle navigation">
       <span class="hamburger"></span>
     </button>
     <nav class="nav">
       <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#" class="nav__link">Home</a>
-        </li>
-      </ul>
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#" class="nav__link">My Services</a>
-        </li>
-      </ul>
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#" class="nav__link">About me</a>
-        </li>
-      </ul>
-      <ul class="nav__list">
-        <li class="nav__item">
-          <a href="#" class="nav__link">My Work</a>
-        </li>
+        <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="#services" class="nav__link">My Services</a></li>
+        <li class="nav__item"><a href="#about" class="nav__link">About me</a></li>
+        <li class="nav__item"><a href="#work" class="nav__link">My Work</a></li>
       </ul>
     </nav>
   </header>
@@ -97,7 +83,7 @@
     <a href="#work" class="btn"> My Work</a>
   </section>
   <!-- About me -->
-  <section class="about.me" id="about">
+  <section class="about-me" id="about">
     <h2 class="section__title section__title--about">
       Who I am
     </h2>
@@ -109,66 +95,60 @@
         projects with Raspberry, stm32 and esp8266, using analog, digital and IOT sensors.
         analog, digital and IOT sensors. Skilled in programming
         in languages such as C++, Python and JavaScript.</p>
-      <p>Specialist in
-        JavaScript derived technologies such as React, Node, Express and Typescript.
+      <p>Specialist in JavaScript derived technologies such as React, Node, Express and Typescript.
         Typescript. Additional within web development I have knowledge of both FontEnd and
-        knowledge of both FontEnd and Backend. My stack of choice is MERN
-        stack is MERN with which I have 4 months of experience.</p>
+        Backend. My stack of choice is MERN with which I have 4 months of experience.</p>
     </div>
-    <img src="./assets/javier-02.png" alt="Javier Villegas leaning whit the tittle">
+    <img class="about-me__img" src="./assets/javier-02.png" alt="Javier Villegas leaning whit the tittle">
   </section>
   <section class="my-work" id="work">
     <h2 class="section__title">My work</h2>
-    <p class="section__subtitle"></p>
+    <p class="section__subtitle section__subtitle--work">
+      Give me an opinion
+    </p>
     <div class="portfolio">
       <!-- Portfolio item 01 -->
-      <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-01.jpg" alt="">
+      <a href="./views/portfolio_item.html" class="portfolio__item">
+        <img class="portfolio__img" src="./assets/portfolio-01.jpg" alt="">
       </a>
       <!-- Portfolio item 02 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-02.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-02.jpg" alt="">
       </a>
       <!-- Portfolio item 03 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-03.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-03.jpg" alt="">
       </a>
       <!-- Portfolio item 04 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-04.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-04.jpg" alt="">
       </a>
       <!-- Portfolio item 05 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-05.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-05.jpg" alt="">
       </a>
       <!-- Portfolio item 06 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-06.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-06.jpg" alt="">
       </a>
       <!-- Portfolio item 07 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-07.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-07.jpg" alt="">
       </a>
       <!-- Portfolio item 08 -->
       <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-08.jpg" alt="">
-      </a>
-      <!-- Portfolio item 09 -->
-      <a href="#" class="portfolio__item">
-        <img class="" src="./assets/portfolio-09.jpg" alt="">
+        <img class="portfolio__img" src="./assets/portfolio-08.jpg" alt="">
       </a>
     </div>
   </section>
-  <!-- footer -->>
-  <footer>
+  <!-- footer -->
+  <footer class="footer">
     <a href="mailto:javillegasna" class="footer__link">javillegasna@gmail.com</a>
     <ul class="social-list">
-      <li class="social-list__item"><a href="" class="social-list__link">a</a></li>
-      <li class="social-list__item"><a href="" class="social-list__link">b</a></li>
-      <li class="social-list__item"><a href="" class="social-list__link">d</a></li>
-      <li class="social-list__item"><a href="" class="social-list__link">e</a></li>
+      <li class="social-list__item"><a href="" class="social-list__link"><i class="fa-brands fa-linkedin"></i></a></li>
+      <li class="social-list__item"><a href="" class="social-list__link"><i class="fa-brands fa-github"></i></a></li>
     </ul>
   </footer>
+  <script src="./js/index.js"></script>
 </body>
-
 </html>
