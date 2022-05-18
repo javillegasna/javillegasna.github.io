@@ -17,7 +17,7 @@ const Work = () => {
       <a key={`portfolio_item_${index}`} href="./views/portfolio_item.html" className="portfolio__item">
         <img
           className="portfolio__img"
-          src={portfolioImages(`./portfolio-${index+1}.jpg`)}
+          src={portfolioImages(`./portfolio-${index+1}.png`)}
           alt=""
         />
       </a>
