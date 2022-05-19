@@ -13,7 +13,7 @@ const services = () => {
             <li>Sass</li>
           </ul>
           <p>If you have an idea, We can make it real.</p>
-          <p>Don care if is a static web page or web application</p>
+          <p>Don't care if is a static web page or web application</p>
         </div>
         <div className="service">
           <h3>Back-end</h3>
