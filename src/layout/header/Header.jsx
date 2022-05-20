@@ -9,9 +9,9 @@ const Header = () => {
   }
   return (
     <header className={nav_open?"nav-open":""}>
-        <div className="logo">
+        <HashLink className="logo" to={"/"}>
           <img src={personal_logo} alt="Letter J whit blue scale of colors inside" />
-        </div>
+        </HashLink>
         <button onClick={handleOnclick} className="nav-toggle" aria-label="toggle navigation">
           <span className="hamburger"></span>
         </button>

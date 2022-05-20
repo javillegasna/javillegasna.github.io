@@ -1,0 +1,116 @@
+.error {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-family: "PT Sans Caption", sans-serif, "arial", "Times New Roman";
+}
+/* Error Page */
+
+.error .digit {
+  width: 150px; 
+  height: 150px; 
+  line-height: 150px; 
+  font-size: 120px;
+  font-weight: bold;
+}
+.error h2    {
+  font-size: 32px;
+}
+.error .msg  {
+  top: -190px;
+  left: 30%;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  font-size: 32px;
+}
+.error span.triangle     {
+  top: 70%;
+  right: 0%;
+  border-left: 20px solid #535353;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+.error .container-error-404 {
+  position: relative;
+  height: 250px;
+  padding-top: 40px;
+}
+.error .container-error-404 .clip {
+  display: inline-block;
+  transform: skew(-45deg);
+}
+.error .clip .shadow {
+  overflow: hidden;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.error .digit {
+  text-align: center;
+  position: relative;
+  top: 8%;
+  color: white;
+  background: #07b3f9;
+  border-radius: 50%;
+  display: inline-block;
+  transform: skew(45deg);
+}
+
+.error h2 {
+  color: #a2a2a2;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.error .msg {
+  position: relative;
+  z-index: 9;
+  display: block;
+  background: #535353;
+  color: #a2a2a2;
+  border-radius: 50%;
+  font-style: italic;
+}
+.error .triangle {
+  position: absolute;
+  z-index: 8;
+  transform: rotate(45deg);
+}
+
+/* Error Page */
+@media (max-width: 767px) {
+  /* Error Page */
+  .error .clip .shadow {
+    height: 100px; 
+  }
+  .error .digit {
+    width: 80px; 
+    height: 80px; 
+    line-height: 80px; 
+    font-size: 52px;
+  }
+  .error h2    {
+    font-size: 24px;
+  }
+  .error .msg  {
+    top: -110px;
+    left: 75px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+  }
+  .error span.triangle     {
+    top: 70%;
+    right: -3%;
+    border-left: 10px solid #535353;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+  }
+  .error .container-error-404 {
+    height: 150px;
+  }
+}
