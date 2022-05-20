@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import "./Header.css"
 import personal_logo from "./assets/personal-Logo.png"
+import { HashLink } from 'react-router-hash-link';
 const Header = () => {
   const [nav_open, set_nav_open] = useState(false)
   const handleOnclick = (e)=>{
@@ -17,24 +18,24 @@ const Header = () => {
         <nav className="nav">
           <ul className="nav__list">
             <li className="nav__item">
-              <a onClick={handleOnclick} href="/#home" className="nav__link">
+              <HashLink onClick={handleOnclick} to="/#home" className="nav__link">
                 Home
-              </a>
+              </HashLink>
             </li>
             <li className="nav__item">
-              <a onClick={handleOnclick} href="/#services" className="nav__link">
+              <HashLink onClick={handleOnclick} to="/#services" className="nav__link">
                 My Services
-              </a>
+              </HashLink>
             </li>
             <li className="nav__item">
-              <a onClick={handleOnclick} href="/#about" className="nav__link">
+              <HashLink onClick={handleOnclick} to="/#about" className="nav__link">
                 About me
-              </a>
+              </HashLink>
             </li>
             <li className="nav__item">
-              <a onClick={handleOnclick} href="/#work" className="nav__link">
+              <HashLink onClick={handleOnclick} to="/#work" className="nav__link">
                 My Work
-              </a>
+              </HashLink>
             </li>
           </ul>
         </nav>

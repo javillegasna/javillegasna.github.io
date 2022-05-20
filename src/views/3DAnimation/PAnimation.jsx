@@ -10,7 +10,8 @@ const PAnimation = () => {
         title={"3D Cube"}
         title_strong={"Animation"}
         subtitle={"Whit only CSS"}
-        img={intro_img}
+        image={intro_img}
+        alt={"3D cube animation imp print"}
       />
       <h3 className="view__subtitle">Normalization of css</h3>
       <p>

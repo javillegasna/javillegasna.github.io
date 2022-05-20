@@ -11,7 +11,8 @@ const Home = () => {
         title={"Hi, I am"}
         title_strong={"Javier Villegas"}
         subtitle={"Full-stack developer"}
-        img={profile_img}
+        image={profile_img}
+        alt={"Picture of Javier VIllegas"}
       />
       <Services />
       <About />

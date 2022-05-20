@@ -1,6 +1,6 @@
 import React from "react";
 import "./Introduction.css"
-const Introduction = ({title,title_strong,subtitle,img}) => {
+const Introduction = ({title,title_strong,subtitle,image , alt}) => {
   return (
     <section className="intro" id="home">
       <h1 className="section__title section__title--intro">
@@ -11,8 +11,8 @@ const Introduction = ({title,title_strong,subtitle,img}) => {
       </p>
       <img
         className="intro__img"
-        src={img}
-        alt="Picture of Javier VIllegas"
+        src={image}
+        alt={alt}
       />
     </section>
   );
