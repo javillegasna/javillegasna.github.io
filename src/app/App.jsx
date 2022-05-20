@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter forceRefresh={true}>
     <Routes>
        <Route path="/" element ={ <Layout><Home/></Layout>} />
-       <Route path="/project_1" element={<Layout><PAnimation/></Layout>}/>
+       <Route path="/#/project_1" element={<Layout><PAnimation/></Layout>}/>
     </Routes>
     </BrowserRouter>
   );
