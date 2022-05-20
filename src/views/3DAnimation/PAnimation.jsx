@@ -242,8 +242,8 @@ const PAnimation = () => {
   bottom: 1em;
   background-image: radial-gradient(
     circle at top,
-    var(--color-palete-L005), 
-    var(--color-palete-L003)
+    var(--color-palette-L005), 
+    var(--color-palette-L003)
   );
   animation:
   ballBounce var(--bounceSpeed) infinite ease-out,
@@ -256,7 +256,7 @@ const PAnimation = () => {
     animation-timing-function: ease-in;
   }
 }
-.ballSadow{
+.ballShadow{
   position: absolute;
   width: 100%; height: 100%;
   background-image: radial-gradient(#000, #0007 50%);
