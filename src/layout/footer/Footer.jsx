@@ -9,12 +9,12 @@ const Footer = () => {
         </a>
         <ul className="social-list">
           <li className="social-list__item">
-            <a href="https://www.linkedin.com/in/javiervillegasnaranjo" target="_blank" className="social-list__link">
+            <a href="https://www.linkedin.com/in/javiervillegasnaranjo" target="_blank" rel="noreferrer" className="social-list__link">
               <FaLinkedin/>
             </a>
           </li>
           <li className="social-list__item">
-            <a href="https://github.com/javillegasna" target="_blank" className="social-list__link">
+            <a href="https://github.com/javillegasna" target="_blank" rel="noreferrer" className="social-list__link">
               <FaGithub/>
             </a>
           </li>

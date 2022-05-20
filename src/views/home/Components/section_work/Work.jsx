@@ -1,5 +1,6 @@
 import "./Work.css";
 import React from "react";
+import { Link } from "react-router-dom";
 const portfolioImages = require.context("./assets",true);
 const portfolio_content = [
   { title: "t1", name:"portfolio-1.jpg", alt:"" },
@@ -14,13 +15,13 @@ const portfolio_content = [
 const Work = () => {
   const render_portfolio_item = (items) =>
     items.map((item, index) => (
-      <a key={`portfolio_item_${index}`} href="./views/portfolio_item.html" className="portfolio__item">
+      <Link key={`portfolio_item_${index}`} to={`/project_${index+1}`} className="portfolio__item">
         <img
           className="portfolio__img"
           src={portfolioImages(`./portfolio-${index+1}.png`)}
           alt=""
         />
-      </a>
+      </Link>
     ));
   return (
     <section className="my-work" id="work">

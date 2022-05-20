@@ -86,7 +86,15 @@ h3 {
 .section__title--intro strong {
   display: block;
 }
-
+.code{
+  padding: 0 px;
+  border-radius: 4px;
+  color: var(--clr-light);
+  background: var(--clr-dark);
+}
+.view__subtitle{
+  margin: 1em 2.5em 0;
+}
 /* content views */
 .portfolio-item-individual {
   padding: 0 2em 2em;
