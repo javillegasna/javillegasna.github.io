@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build && echo 'alexandev.com' > ./build/CNAME",
+    "predeploy": "npm run build && echo 'javillegas.dev' > ./build/CNAME",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -21,31 +21,69 @@
 }
 
 .service {
-  max-width: 500px;
   margin: 0 auto;
-  padding: 0.5em;
+  padding: 1em;
   margin-top: 1em;
+  height: 100%;
   border-radius: 1em;
   background-color: #1a1b1f91;
+  background: var(--bg-card);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
+
+.service::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.service:hover::before {
+  transform: scaleX(1);
+}
+
+.service:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.service h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.service p {
+  margin-bottom: 1.5rem;
+}
+
+
 .service__list {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
+  gap: 0.4rem;
   justify-content: center;
 }
 .service__list li {
-  position: relative;
-  margin: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  background:#1e293b;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
 }
-.service__list li::after {
-  content: "|";
-  right: -6px;
-  position: absolute;
-  color: var(--clr-accent);
-}
-.service__list li:last-child:after {
-  content: "";
+ .service__list li:hover {
+  background: rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+  background: var(--clr-accent)
 }
 @media (min-width: 800px) {
   .services {
