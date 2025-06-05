@@ -14,6 +14,7 @@ const services = () => {
             <li>Astro</li>
             <li>Css</li>
             <li>Sass</li>
+            <li>Next.js</li>
           </ul>
         </div>
         <div className="service">

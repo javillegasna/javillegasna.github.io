@@ -18,6 +18,8 @@ html {
   --clr-light: #fff;
   --clr-dark: #303030;
   --clr-accent: #94aee6;
+  --clr-accent-light: #d0d9f7;
+  --clr-accent-dark: #6b7bbf;
 
   --fs-h1: 3rem;
   --fs-h2: 2.25rem;
