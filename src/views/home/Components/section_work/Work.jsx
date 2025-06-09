@@ -1,27 +1,59 @@
 import "./Work.css";
 import React from "react";
-import { Link } from "react-router-dom";
+import CardProject from "./components/CardProject";
 const portfolioImages = require.context("./assets",true);
 const portfolio_content = [
-  { title: "t1", name:"portfolio-1.png", alt:"", finished:true },
-  { title: "t2", name:"portfolio-2.png", alt:"", finished:false },
-  { title: "t3", name:"portfolio-3.png", alt:"", finished:false },
-  { title: "t4", name:"portfolio-4.png", alt:"", finished:false },
-  { title: "t5", name:"portfolio-5.png", alt:"", finished:false },
-  { title: "t6", name:"portfolio-6.png", alt:"", finished:false },
-  { title: "t7", name:"portfolio-7.png", alt:"", finished:false },
-  { title: "t7", name:"portfolio-8.png", alt:"", finished:false },
+  { 
+    finished:true,
+    title: "3D Cube animation",
+    subtitle: "Pure css 3d animation" ,
+    description: "Awesome 3d animation using just css",
+    src:"3d-cube.png", 
+    stack: [
+      {label: "HTML", value:"30"},
+      {label: "CSS", value:"70"}
+    ]
+  },
+
+  { 
+    finished:false, 
+    title: "Pico Placa Predictor",
+    subtitle: "Minimal React app for pico & placa" ,
+    description: "Minimal react component to consult pico & placa by plate and date time",
+    src:"pico-placa.png", 
+    stack: [
+      {label: "TypeScript", value:"100"},
+      {label: "ReactJS", value:"76"},
+      {label: "CSS", value:"8"},
+      {label: "Jest", value:"14"}
+    ] 
+  },
+  { 
+    finished:false, 
+    title: "Pocket Safe",
+    subtitle: "Personal finance tracking" ,
+    description: "Finance tracking application writhen on JS using MERN stack", 
+    src:"pocket-safe.png",
+    stack: [
+      {label: "ReactJS", value:"34"},
+      {label: "Express", value:"40"},
+      {label: "Mongo", value:"16"}
+    ]  
+  },
 ];
 const Work = () => {
   const render_portfolio_item = (items) =>
     items.map((item, index) => (
-      <Link key={`portfolio_item_${index}`} to={item.finished?`/project_${index+1}`:"/construction"} className="portfolio__item">
-        <img
-          className="portfolio__img"
-          src={portfolioImages(`./${item.name}`)}
-          alt={item.alt}
-        />
-      </Link>
+      <CardProject 
+        index={index} 
+        stack={item.stack} 
+        src={portfolioImages(`./${item.src}`)}
+        tag={item.finished? "Available": "On construction"}
+        title={item.title}
+        subtitle={item.subtitle}
+        description={item.description}
+        finished={item.finished}
+      />
     ));
   return (
     <section className="my-work" id="work">

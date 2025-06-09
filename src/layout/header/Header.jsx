@@ -8,7 +8,7 @@ const Header = () => {
     set_nav_open(!nav_open)
   }
   return (
-    <header className={nav_open?"nav-open":""}>
+    <header id='page-header' className={nav_open?"nav-open":""}>
         <HashLink className="logo" to={"/"}>
           <img src={personal_logo} alt="Letter J whit blue scale of colors inside" />
         </HashLink>
