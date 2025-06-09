@@ -2,8 +2,9 @@
   "name": "temp_portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alexandev.com/",
+  "homepage": "https://javillegas.dev/",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
@@ -18,7 +19,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build && echo 'javillegas.dev' > ./build/CNAME",
+    "predeploy": "GENERATE_SOURCEMAP=false npm run build && echo 'javillegas.dev' > ./build/CNAME",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",

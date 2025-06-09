@@ -1,55 +1,95 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import emailjs from '@emailjs/browser';
 import "./Contact.css";
+const SERVICE_ID = process.env.REACT_APP_SERVICE_ID;
+const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_ID;
+const PUBLIC_KEY = process.env.REACT_APP_PUBLIC_KEY;
+
 const Contact = () => {
+    const form = useRef();
+    const [formValues, setFormValues] = useState({
+        name: "",
+        email: "",
+        message: "",
+    })
+    const sanitizeValues = input => {
+        return input
+            .trim()
+            .replace(/<[^>]*>?/gm, '')
+            .replace(/&/g, '')
+            .replace(/"/g, '')
+            .replace(/'/g, '');
+    }
+    const handleOnchangeInputs = (value, inputName)=>{
+        setFormValues({...formValues, [inputName]:sanitizeValues(value)})
+    }
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        emailjs
+            .sendForm(
+                SERVICE_ID,
+                TEMPLATE_ID,
+                form.current,
+                { publicKey: PUBLIC_KEY },
+            )
+            .then(
+                () => alert("Email has been send successfully!"),
+                (error) => console.log('FAILED...', error,),
+            );
+
+    }
     return (
-        <div class="contact" id="contact"> 
-            <div class="screen">
-                <div class="screen-header">
-                    <div class="screen-header__left">
-                        <div class="screen-header__button close"></div>
-                        <div class="screen-header__button maximize"></div>
-                        <div class="screen-header__button minimize"></div>
+        <section className="contact" id="contact">
+            <div className="screen">
+                <header className="screen-header">
+                    <div className="screen-header__left">
+                        <div className="screen-header__button close"></div>
+                        <div className="screen-header__button maximize"></div>
+                        <div className="screen-header__button minimize"></div>
                     </div>
-                    <div class="screen-header__right">
-                        <div class="screen-header__ellipsis"></div>
-                        <div class="screen-header__ellipsis"></div>
-                        <div class="screen-header__ellipsis"></div>
+                    <div className="screen-header__right">
+                        <div className="screen-header__ellipsis"></div>
+                        <div className="screen-header__ellipsis"></div>
+                        <div className="screen-header__ellipsis"></div>
                     </div>
-                </div>
-                <div class="screen-body">
-                    <div class="screen-body__item left">
-                        <div class="app-title">
+                </header>
+                <div className="screen-body">
+                    <aside className="screen-body__item left">
+                        <div className="app-title">
                             <span>CONTACT</span>
                             <span>ME</span>
                         </div>
-                        <div class="app-contact">
+                        <div className="app-contact">
                             <span>CONTACT INFO: </span>
                             <span>+593 987543169</span>
                         </div>
-                    </div>
-                    <div class="screen-body__item">
-                        <div class="app-form">
-                            <div class="app-form__group">
-                                <input class="app-form__control" placeholder="NAME" value="Your Name" />
-                            </div>
-                            <div class="app-form__group">
-                                <input class="app-form__control" placeholder="EMAIL" />
-                            </div>
-                            <div class="app-form__group">
-                                <input class="app-form__control" placeholder="CONTACT NO" />
-                            </div>
-                            <div class="app-form__group message">
-                                <textarea class="app-form__control" placeholder="MESSAGE" />
-                            </div>
-                            <div class="app-form__group buttons">
-                                <button class="app-form__button">CANCEL</button>
-                                <button class="app-form__button">SEND</button>
-                            </div>
-                        </div>
+                    </aside>
+                    <div className="screen-body__item">
+                        <form ref={form} onSubmit={handleSubmit} className="app-form">
+                            <fieldset className="app-form__group name">
+                                <input className="app-form__control" name="name" placeholder="YOUR NAME" onChange={
+                                    (e) => handleOnchangeInputs(e.target.value, "name")
+                                } value={formValues.name}/>
+                            </fieldset>
+                            <fieldset className="app-form__group">
+                                <input type="email" className="app-form__control email" name="email" placeholder="EMAIL" onChange={
+                                    (e) => handleOnchangeInputs(e.target.value, "email")
+                                } value={formValues.email} />
+                            </fieldset>
+                            <fieldset className="app-form__group">
+                                <textarea className="app-form__control text" name="message" placeholder="MESSAGE" onChange={
+                                    (e) => handleOnchangeInputs(e.target.value, "message")
+                                } value={formValues.message} />
+                            </fieldset>
+                            <fieldset className="app-form__group buttons">
+                                <button type="reset" className="app-form__button">CANCEL</button>
+                                <button type="submit" className="app-form__button">SEND</button>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

@@ -37,6 +37,11 @@ const Header = () => {
                 My Work
               </HashLink>
             </li>
+            <li className="nav__item">
+              <HashLink onClick={handleOnclick} to="/#contact" className="nav__link">
+                Contact me
+              </HashLink>
+            </li>
           </ul>
         </nav>
       </header>
