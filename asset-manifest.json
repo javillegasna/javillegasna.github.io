@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.f9b66c4b.css",
-    "main.js": "/static/js/main.e0a0489f.js",
+    "main.css": "/static/css/main.39f38d72.css",
+    "main.js": "/static/js/main.05e0ad25.js",
     "react-syntax-highlighter/refractor-core-import.js": "/static/js/react-syntax-highlighter/refractor-core-import.6ce87a26.chunk.js",
     "react-syntax-highlighter_languages_refractor_abap.js": "/static/js/react-syntax-highlighter_languages_refractor_abap.7a14f3b1.chunk.js",
     "react-syntax-highlighter_languages_refractor_actionscript.js": "/static/js/react-syntax-highlighter_languages_refractor_actionscript.c510b08b.chunk.js",
@@ -155,21 +155,17 @@
     "react-syntax-highlighter_languages_refractor_xquery.js": "/static/js/react-syntax-highlighter_languages_refractor_xquery.10f8b2ca.chunk.js",
     "react-syntax-highlighter_languages_refractor_yaml.js": "/static/js/react-syntax-highlighter_languages_refractor_yaml.a8fe9e13.chunk.js",
     "static/js/8206.0d24ac4d.chunk.js": "/static/js/8206.0d24ac4d.chunk.js",
-    "static/media/portfolio-5.png": "/static/media/portfolio-5.f7b9b00cb79a399a7705.png",
-    "static/media/portfolio-4.png": "/static/media/portfolio-4.d0ff0fe15ba3d07e1a04.png",
     "static/media/services-bg.jpg": "/static/media/services-bg.f1ca14a06879defdb540.jpg",
-    "static/media/portfolio-6.png": "/static/media/portfolio-6.fdf44c93e28889eae8cf.png",
-    "static/media/portfolio-3.png": "/static/media/portfolio-3.6eb2e15cfcbbaf508dc9.png",
+    "static/media/pico-placa.png": "/static/media/pico-placa.fdf44c93e28889eae8cf.png",
     "static/media/javier-01.jpg": "/static/media/javier-01.1fcc0f046a86d05ce5e2.jpg",
-    "static/media/portfolio-8.png": "/static/media/portfolio-8.135ff3d8be660a63781f.png",
-    "static/media/portfolio-7.png": "/static/media/portfolio-7.7aefa5114aeae27eed89.png",
-    "static/media/portfolio-2.png": "/static/media/portfolio-2.49713171f4cc11642c04.png",
+    "static/media/pocket-safe.png": "/static/media/pocket-safe.7aefa5114aeae27eed89.png",
     "static/media/About_Me.png": "/static/media/About_Me.273871ddbaf5d1837504.png",
+    "static/media/3d-cube.png": "/static/media/3d-cube.c048d6a156d9992c63e1.png",
     "static/media/portfolio-1.png": "/static/media/portfolio-1.c048d6a156d9992c63e1.png",
     "index.html": "/index.html"
   },
   "entrypoints": [
-    "static/css/main.f9b66c4b.css",
-    "static/js/main.e0a0489f.js"
+    "static/css/main.39f38d72.css",
+    "static/js/main.05e0ad25.js"
   ]
 }
