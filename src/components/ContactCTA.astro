@@ -22,6 +22,9 @@ import Icon from './Icon.astro';
 			<Icon icon="paper-plane-tilt" size="1.2em" />
 		</button>
 		<p class="status" id="cf-status" role="status" aria-live="polite"></p>
+		<p class="fallback" id="cf-fallback" hidden>
+			Or <a id="cf-mailto" href="mailto:javillegasna@gmail.com">email me directly</a> — your message is pre-filled.
+		</p>
 	</form>
 </aside>
 
@@ -45,6 +48,20 @@ import Icon from './Icon.astro';
 	const status = document.getElementById('cf-status');
 	const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
 	const label = form?.querySelector<HTMLSpanElement>('.submit-label');
+	const fallback = document.getElementById('cf-fallback');
+	const mailtoLink = document.getElementById('cf-mailto') as HTMLAnchorElement | null;
+
+	// Build a prefilled mailto: link so a failed send never loses the user's message.
+	const buildMailto = () => {
+		if (!form || !mailtoLink) return;
+		const data = new FormData(form);
+		const name = String(data.get('name') ?? '').trim();
+		const email = String(data.get('email') ?? '').trim();
+		const message = String(data.get('message') ?? '').trim();
+		const subject = `Portfolio contact${name ? ` from ${name}` : ''}`;
+		const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+		mailtoLink.href = `mailto:javillegasna@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+	};
 
 	form?.addEventListener('submit', async (event) => {
 		event.preventDefault();
@@ -62,6 +79,7 @@ import Icon from './Icon.astro';
 			status.textContent = '';
 			status.dataset.state = '';
 		}
+		if (fallback) fallback.hidden = true;
 
 		try {
 			await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, { publicKey: PUBLIC_KEY });
@@ -73,9 +91,11 @@ import Icon from './Icon.astro';
 		} catch (error) {
 			console.error('FAILED...', error);
 			if (status) {
-				status.textContent = 'Something went wrong. Please try again or email me directly.';
+				status.textContent = 'Something went wrong sending your message.';
 				status.dataset.state = 'error';
 			}
+			buildMailto();
+			if (fallback) fallback.hidden = false;
 		} finally {
 			if (button) button.disabled = false;
 			if (label) label.textContent = originalLabel;
@@ -204,6 +224,18 @@ import Icon from './Icon.astro';
 
 	.status[data-state='error'] {
 		color: hsl(339, 80%, 68%);
+	}
+
+	.fallback {
+		margin: 0;
+		font-size: var(--text-sm);
+		text-align: center;
+		color: var(--gray-300);
+	}
+
+	.fallback a {
+		color: var(--accent-regular);
+		font-weight: 500;
 	}
 
 	@media (min-width: 50em) {
