@@ -1,0 +1,222 @@
+---
+import Icon from './Icon.astro';
+---
+
+<aside>
+	<h2>Interested in working together?</h2>
+	<form class="contact-form" id="contact-form">
+		<div class="field">
+			<label for="cf-name">Name</label>
+			<input id="cf-name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+		</div>
+		<div class="field">
+			<label for="cf-email">Email</label>
+			<input id="cf-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+		</div>
+		<div class="field">
+			<label for="cf-message">Message</label>
+			<textarea id="cf-message" name="message" rows="4" placeholder="Tell me about your project…" required></textarea>
+		</div>
+		<button type="submit" class="submit">
+			<span class="submit-label">Send Me a Message</span>
+			<Icon icon="paper-plane-tilt" size="1.2em" />
+		</button>
+		<p class="status" id="cf-status" role="status" aria-live="polite"></p>
+	</form>
+</aside>
+
+<script>
+	import emailjs from '@emailjs/browser';
+
+	const SERVICE_ID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID;
+	const TEMPLATE_ID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+	const PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+
+	// Strip HTML tags and characters that could be abused, matching the original site's sanitizer.
+	const sanitize = (value: string) =>
+		value
+			.trim()
+			.replace(/<[^>]*>?/gm, '')
+			.replace(/&/g, '')
+			.replace(/"/g, '')
+			.replace(/'/g, '');
+
+	const form = document.getElementById('contact-form') as HTMLFormElement | null;
+	const status = document.getElementById('cf-status');
+	const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+	const label = form?.querySelector<HTMLSpanElement>('.submit-label');
+
+	form?.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		if (!form) return;
+
+		// Sanitize values in place before sending, so EmailJS reads the cleaned inputs by their `name`.
+		for (const field of form.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea')) {
+			field.value = sanitize(field.value);
+		}
+
+		const originalLabel = label?.textContent ?? 'Send Me a Message';
+		if (button) button.disabled = true;
+		if (label) label.textContent = 'Sending…';
+		if (status) {
+			status.textContent = '';
+			status.dataset.state = '';
+		}
+
+		try {
+			await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form, { publicKey: PUBLIC_KEY });
+			form.reset();
+			if (status) {
+				status.textContent = 'Message sent successfully — thanks for reaching out!';
+				status.dataset.state = 'ok';
+			}
+		} catch (error) {
+			console.error('FAILED...', error);
+			if (status) {
+				status.textContent = 'Something went wrong. Please try again or email me directly.';
+				status.dataset.state = 'error';
+			}
+		} finally {
+			if (button) button.disabled = false;
+			if (label) label.textContent = originalLabel;
+		}
+	});
+</script>
+
+<style>
+	aside {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2rem;
+		border-top: 1px solid var(--gray-800);
+		border-bottom: 1px solid var(--gray-800);
+		padding: 5rem 1.5rem;
+		background-color: var(--gray-999_40);
+		box-shadow: var(--shadow-sm);
+	}
+
+	h2 {
+		font-size: var(--text-xl);
+		text-align: center;
+		max-width: 15ch;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		width: 100%;
+		max-width: 32rem;
+	}
+
+	.field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	label {
+		font-size: var(--text-sm);
+		font-weight: 500;
+		color: var(--gray-300);
+	}
+
+	input,
+	textarea {
+		font: inherit;
+		color: var(--gray-0);
+		background-color: var(--gray-999);
+		border: 1px solid var(--gray-700);
+		border-radius: 0.5rem;
+		padding: 0.65em 0.9em;
+		transition: border-color var(--theme-transition), box-shadow var(--theme-transition);
+	}
+
+	input::placeholder,
+	textarea::placeholder {
+		color: var(--gray-400);
+	}
+
+	input:focus,
+	textarea:focus {
+		outline: none;
+		border-color: var(--accent-regular);
+		box-shadow: 0 0 0 2px var(--accent-overlay);
+	}
+
+	textarea {
+		resize: vertical;
+		min-height: 6rem;
+	}
+
+	.submit {
+		position: relative;
+		display: flex;
+		place-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 0.56em 2em;
+		gap: 0.8em;
+		color: var(--accent-text-over);
+		font: inherit;
+		font-size: var(--text-lg);
+		line-height: 1.1;
+		border: none;
+		border-radius: 999rem;
+		overflow: hidden;
+		background: var(--gradient-accent);
+		box-shadow: var(--shadow-md);
+		white-space: nowrap;
+		cursor: pointer;
+		align-self: center;
+	}
+
+	.submit::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+		transition: background-color var(--theme-transition);
+		mix-blend-mode: overlay;
+	}
+
+	.submit:focus::after,
+	.submit:hover::after {
+		background-color: hsla(var(--gray-999-basis), 0.3);
+	}
+
+	.submit:disabled {
+		cursor: progress;
+		opacity: 0.7;
+	}
+
+	.status {
+		margin: 0;
+		min-height: 1.25em;
+		font-size: var(--text-sm);
+		text-align: center;
+	}
+
+	.status[data-state='ok'] {
+		color: var(--accent-regular);
+	}
+
+	.status[data-state='error'] {
+		color: hsl(339, 80%, 68%);
+	}
+
+	@media (min-width: 50em) {
+		aside {
+			padding: 7.5rem;
+		}
+
+		h2 {
+			font-size: var(--text-3xl);
+		}
+
+		.submit {
+			font-size: var(--text-xl);
+		}
+	}
+</style>

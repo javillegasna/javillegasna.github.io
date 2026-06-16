@@ -1,0 +1,135 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About | Javier Villegas" description="About Javier Villegas - Mechatronic Engineer & Full-Stack Developer">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background as a Mechatronic Engineer and Full-Stack Developer."
+			>
+				<img
+					width="384"
+					height="605"
+					src="/assets/about-me.png"
+					alt="Javier Villegas - Mechatronic Engineer & Full-Stack Developer"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Background</h2>
+				<div class="content">
+					<p>
+						I'm Javier Villegas, a Mechatronic Engineer turned Full-Stack Developer based in Ecuador. 
+						I specialize in building scalable web applications and back-end systems, with a particular 
+						focus on JavaScript, TypeScript, React, and Node.js. My unique background in mechatronics 
+						allows me to bridge the gap between hardware and software, bringing a holistic approach 
+						to problem-solving.
+					</p>
+					<p>
+						As a Software Developer at IOET, I've worked on various projects focusing on back-end 
+						development and insurance integrations. I started as a Junior Software Developer in July 2022 
+						and have grown into a more senior role, taking on increasingly complex full-stack projects. 
+						I'm passionate about writing clean, maintainable code and continuously learning new 
+						technologies.
+					</p>
+					<p>
+						Beyond professional work, I enjoy building personal projects that combine my interests in 
+						software development and electronics. I'm always eager to explore new frameworks, contribute 
+						to open-source projects, and collaborate with other developers.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Education</h2>
+				<div class="content">
+					<p>
+						<strong>Bachelor's Degree in Mechatronic Engineering</strong><br />
+						Universidad Internacional del Ecuador (UIDE) — Graduated 2021
+					</p>
+					<p>
+						My educational background in Mechatronics provided me with a strong foundation in both 
+						hardware and software systems. This interdisciplinary field has shaped my approach to 
+						development, allowing me to think about systems holistically and understand how different 
+						components interact.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Skills</h2>
+				<div class="content">
+					<p>
+						<strong>Languages & Frameworks:</strong> JavaScript, TypeScript, React, Node.js, Express, Python<br />
+						<strong>Back-end:</strong> API Development, Server-side Logic, Database Interactions<br />
+						<strong>Front-end:</strong> React Components, UI/UX Implementation<br />
+						<strong>Tools & Technologies:</strong> Git/GitHub, RESTful APIs, Insurance Integrations<br />
+						<strong>Additional:</strong> Electronic Design, Hardware-Software Integration, Mechatronics
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
