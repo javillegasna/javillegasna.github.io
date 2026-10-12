@@ -28,6 +28,76 @@ The first file, `balanced_5010_sample`, has four claims.
 - The file has three claim-level adjustments: `OA-23` for 50.00, `PR-2` for 30.00 and `CO-29` for 80.00. None of them are in the DataFrame.
 - The file has a `PLB` segment with three provider-level adjustments: 25.00, -5.00 and 10.00. They are not in the DataFrame either.
 
+<style>
+.dgm { margin-block: 2rem; }
+.dgm .dgm-body { font-size: 0.8em; line-height: 1.4; color: var(--gray-100); }
+.dgm figcaption { margin-top: 0.75rem; font-size: var(--text-sm); color: var(--gray-300); line-height: 1.5; }
+.dgm .box { border: 1px solid var(--gray-700); border-radius: 0.75rem; padding: 0.6rem 0.75rem; background: var(--gray-999); }
+.dgm .name { display: block; font-weight: 600; color: var(--gray-0); }
+.dgm .note { display: block; color: var(--gray-300); }
+.dgm code { font-size: 1em; }
+.dgm-835 .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; margin-bottom: 0.75rem; color: var(--gray-200); }
+.dgm-835 .legend span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.dgm-835 .sw { display: inline-block; width: 1.6em; height: 1em; border-radius: 0.25rem; }
+.dgm-835 .sw.kept { border: 1.5px solid var(--accent-regular); background: var(--accent-subtle-overlay); }
+.dgm-835 .sw.lost { border: 1.5px dashed var(--gray-500); }
+.dgm-835 .claim .name, .dgm-835 .claim .note { margin-bottom: 0.1rem; }
+.dgm-835 .payment { background: var(--gray-900); }
+.dgm-835 .claims { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.5rem; margin-top: 0.6rem; }
+.dgm-835 .item { display: inline-block; white-space: nowrap; margin: 0.3rem 0.3rem 0 0; padding: 0.15rem 0.45rem; border-radius: 0.375rem; font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+.dgm-835 .kept { border: 1.5px solid var(--accent-regular); background: var(--accent-subtle-overlay); color: var(--gray-0); }
+.dgm-835 .lost { border: 1.5px dashed var(--gray-500); background: transparent; color: var(--gray-300); }
+.dgm-835 .lost > .name { text-decoration: line-through; text-decoration-thickness: 1.5px; }
+.dgm-835 .item.lost::before { content: '✕'; margin-inline-end: 0.35em; font-family: var(--font-body); color: var(--gray-400); }
+.dgm-835 .item .k { font-family: var(--font-body); font-size: 0.85em; color: inherit; opacity: 0.85; margin-inline-end: 0.35em; }
+.dgm-835 .claim.kept { background: var(--gray-999); }
+.dgm-835 .plb { margin-top: 0.5rem; }
+.dgm-835 .plb .items { display: flex; flex-wrap: wrap; gap: 0 0.4rem; }
+.dgm-835 .verdict { margin-top: 0.75rem; padding: 0.5rem 0.75rem; border-radius: 0.75rem; border-inline-start: 0.25rem solid var(--accent-regular); background: var(--accent-subtle-overlay); color: var(--gray-0); }
+.dgm-doors .core { text-align: center; max-width: 24rem; margin-inline: auto; border: 2px solid var(--accent-regular); background: var(--accent-subtle-overlay); }
+.dgm-doors .core .name { font-size: 1.15em; }
+.dgm-doors .flow { display: block; margin-top: 0.25rem; font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; color: var(--gray-100); }
+.dgm-doors .doors { position: relative; display: grid; grid-template-columns: 1fr; gap: 0.6rem; margin-top: 1.5rem; padding-inline-start: 1.25rem; }
+.dgm-doors .door { position: relative; }
+.dgm-doors .door::before { content: ''; position: absolute; top: 1.4rem; left: -0.85rem; width: 0.85rem; border-top: 2px solid var(--accent-regular); }
+.dgm-doors .door:not(:last-child)::after { content: ''; position: absolute; top: 1.4rem; bottom: -0.6rem; left: -0.85rem; border-inline-start: 2px solid var(--accent-regular); }
+.dgm-doors .doors::before { content: ''; position: absolute; top: -1.5rem; height: 2.9rem; left: 0.4rem; border-inline-start: 2px solid var(--accent-regular); }
+.dgm-doors .flow span { white-space: nowrap; }
+.dgm-doors .door .tag { display: inline-block; margin-top: 0.35rem; padding: 0.1rem 0.45rem; border-radius: 0.375rem; background: var(--gray-800); color: var(--gray-0); font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace; }
+.dgm-video video { display: block; width: 100%; height: auto; border-radius: 0.75rem; border: 1px solid var(--gray-800); box-shadow: var(--shadow-sm); background: var(--gray-900); }
+@media (min-width: 30em) {
+  .dgm-835 .claims { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 50em) {
+  .dgm .dgm-body { font-size: 0.75em; }
+  .dgm-835 .claims { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .dgm-doors .doors { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding-inline-start: 0; padding-top: 1.25rem; margin-top: 1.25rem; }
+  .dgm-doors .doors::before { top: 0; height: 0; left: 16.67%; right: 16.67%; border-inline-start: 0; border-top: 2px solid var(--accent-regular); }
+  .dgm-doors .door:not(:last-child)::after { content: none; }
+  .dgm-doors .doors::after { content: ''; position: absolute; top: -1.25rem; left: 50%; height: 1.25rem; border-inline-start: 2px solid var(--accent-regular); }
+  .dgm-doors .door::before { top: -1.25rem; left: 50%; width: 0; height: 1.25rem; border-top: 0; border-inline-start: 2px solid var(--accent-regular); }
+  .dgm-doors .door { text-align: center; }
+}
+</style>
+
+<figure class="dgm dgm-835">
+<div class="dgm-body" role="img" aria-label="Tree of the balanced_5010_sample file. One payment with four claims: CLM1001 with service lines 99213 and 85025; CLM1002 with service line 97110 and claim adjustment OA-23 50.00; CLM2001 with service line 99212 and claim adjustment PR-2 30.00; CLM2002 with no service lines and claim adjustment CO-29 80.00. A PLB segment with three provider adjustments: 25.00, -5.00 and 10.00. edi-835-parser's DataFrame keeps the first three claims and their service lines. It loses claim CLM2002, all three claim-level adjustments and the three provider adjustments. oxedi keeps all of it.">
+<div class="legend"><span><i class="sw kept"></i>In the DataFrame</span><span><i class="sw lost"></i>Not in the DataFrame</span></div>
+<div class="box payment">
+<span class="name">Payment</span><span class="note">balanced_5010_sample</span>
+<div class="claims">
+<div class="box claim kept"><span class="name">CLM1001</span><span class="item kept"><span class="k">line</span>99213</span><span class="item kept"><span class="k">line</span>85025</span></div>
+<div class="box claim kept"><span class="name">CLM1002</span><span class="item kept"><span class="k">line</span>97110</span><span class="item lost"><span class="k">adj</span>OA-23 50.00</span></div>
+<div class="box claim kept"><span class="name">CLM2001</span><span class="item kept"><span class="k">line</span>99212</span><span class="item lost"><span class="k">adj</span>PR-2 30.00</span></div>
+<div class="box claim lost"><span class="name">CLM2002</span><span class="note">no service lines</span><span class="item lost"><span class="k">adj</span>CO-29 80.00</span></div>
+</div>
+<div class="box plb lost"><span class="name">PLB · provider adjustments</span><span class="items"><span class="item lost">25.00</span><span class="item lost">-5.00</span><span class="item lost">10.00</span></span></div>
+</div>
+<div class="verdict"><strong>oxedi keeps all of it:</strong> 4 claims, 4 service lines, 3 claim adjustments and 3 provider adjustments, each as a row.</div>
+</div>
+<figcaption>What the file has vs. what reaches the DataFrame. edi-835-parser 1.8.0's <code>to_dataframe()</code> on <code>balanced_5010_sample</code>: struck items are in the file but not in the DataFrame, with no error.</figcaption>
+</figure>
+
 The second file, `multi_claim_sample`, showed the same pattern from another angle. Its claim-level adjustments, `CO-94` for -300.00 and `CO-94` for -600.00, are missing. Only the adjustments attached to service lines come through.
 
 Two smaller things showed up along the way.
@@ -71,6 +141,18 @@ The core is written in Rust and does no I/O of its own: it receives bytes and re
 
 The same Rust core is available in three places.
 
+<figure class="dgm dgm-doors">
+<div class="dgm-body" role="img" aria-label="One core, three doors. A Rust core that does no I/O takes bytes in and gives tables and diagnostics out. Three doors use it: Python, installed with pip install oxedi; DuckDB, with the read_835 table function; and the browser, through WebAssembly with no network access.">
+<div class="box core"><span class="name">Rust core</span><span class="note">no I/O</span><span class="flow"><span>bytes in →</span> <span>tables + diagnostics out</span></span></div>
+<div class="doors">
+<div class="box door"><span class="name">Python</span><span class="tag">pip install oxedi</span></div>
+<div class="box door"><span class="name">DuckDB</span><span class="tag">read_835</span></div>
+<div class="box door"><span class="name">Browser</span><span class="tag">WebAssembly</span><span class="note">no network</span></div>
+</div>
+</div>
+<figcaption>One core, three doors. The front ends add packaging, SQL and a page; parsing, tables and diagnostics come from the same core.</figcaption>
+</figure>
+
 **Python.** `pip install oxedi` installs the package, currently at version 0.5.0, with no Python dependencies.
 
 ```python
@@ -108,6 +190,11 @@ FROM read_835('remits/*.835', table_name := 'services', filename := true);
 Writing 835 files from DuckDB with `COPY … TO … (FORMAT edi835)` is coming: it is in extension 0.2.0, which has been submitted to the community repository but is not published there yet.
 
 **The browser.** The [viewer](https://javillegas.dev/oxedi/viewer/) is the same Rust core compiled to WebAssembly, unchanged. You drop a file on the page and see its tables and diagnostics.
+
+<figure class="dgm dgm-video">
+<video autoplay muted loop playsinline width="1200" height="720" poster="/assets/writing/oxedi-viewer.png" aria-label="Screen recording of the oxedi viewer: the sample file opens on Summary, then the claims table; an edited copy with an invalid claim status shows one diagnostic, and clicking it highlights the element in the Text view."><source src="/assets/writing/oxedi-viewer.webm" type="video/webm"></video>
+<figcaption>The viewer on the sample file: Summary, then the claims table. Then a copy with one claim status changed to <code>7</code>, a code the spec does not list: clicking its diagnostic jumps to the segment in the Text view, with the element highlighted.</figcaption>
+</figure>
 
 This one matters to me for a specific reason: 835 files contain patient information. The viewer's Content-Security-Policy sets `connect-src 'none'`, which means the page cannot send your file anywhere. You do not have to take my word for it. Open your browser's network tab while you use it and check.
 
