@@ -4,11 +4,17 @@ import '../styles/global.css';
 interface Props {
 	title?: string | undefined;
 	description?: string | undefined;
+	/** Absolute canonical URL; when set, also emitted as `og:url`. */
+	canonical?: string | URL | undefined;
+	/** Open Graph type, e.g. `article`. */
+	ogType?: string | undefined;
 }
 
 const {
 	title = 'Javier Villegas: Portfolio',
 	description = 'Mechatronic Engineer & Full-Stack Developer based in Ecuador',
+	canonical,
+	ogType = 'website',
 } = Astro.props;
 ---
 
@@ -17,6 +23,10 @@ const {
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
+<meta property="og:title" content={title} />
+<meta property="og:type" content={ogType} />
+{canonical && <link rel="canonical" href={canonical.toString()} />}
+{canonical && <meta property="og:url" content={canonical.toString()} />}
 
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
