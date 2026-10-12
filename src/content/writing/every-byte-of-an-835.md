@@ -33,7 +33,7 @@ The second file, `multi_claim_sample`, showed the same pattern from another angl
 Two smaller things showed up along the way.
 
 - Amounts come out as floats: `150.0`, not `150.00`. For money that has to reconcile to the cent, I would rather not round-trip through binary floating point.
-- The payer identifier (`N104`) is read with `int()`. Real payer files use alphanumeric ids, so on those files the parse raises `ValueError`. Running the comparison on real files needed a one-line patch.
+- The payer identifier (`N104`) is read with `int()`. Some payers use alphanumeric ids, and on their files the parse raises `ValueError`. Running the comparison on real files needed a one-line patch.
 
 None of this makes edi-835-parser a bad library. Its DataFrame is organized around service lines, and for many uses that is enough. But if you reconcile payments, a claim that was paid at the claim level, an adjustment that explains a difference, or a provider-level deduction in `PLB` is exactly the data you need. And when it is missing without an error, you find out late, if at all.
 
@@ -111,7 +111,7 @@ Writing 835 files from DuckDB with `COPY … TO … (FORMAT edi835)` is coming: 
 
 This one matters to me for a specific reason: 835 files contain patient information. The viewer's Content-Security-Policy sets `connect-src 'none'`, which means the page cannot send your file anywhere. You do not have to take my word for it. Open your browser's network tab while you use it and check.
 
-Because all three doors share one core, they also share one behavior. The WebAssembly module and the Python library produce identical tables and diagnostics on every test file, and every example in the documentation runs in CI.
+Because all three doors share one core, they also share one behavior. The WebAssembly module and the Python library produce identical tables and diagnostics on every test file, and the documentation's examples run in CI.
 
 ## Numbers
 
