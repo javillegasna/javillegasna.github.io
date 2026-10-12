@@ -1,0 +1,128 @@
+---
+import { getCollection } from 'astro:content';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Pill from '../components/Pill.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const articles = (await getCollection('writing', ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+
+const formatDate = (date: Date) =>
+	date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout
+	title="Writing | Javier Villegas"
+	description="Articles by Javier Villegas on the software he builds and what he learns building it"
+	canonical={new URL('/writing/', Astro.site)}
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Writing"
+				tagline="Notes on the software I build and what I learn building it."
+				align="start"
+			/>
+			{
+				articles.length === 0 ? (
+					<p class="empty">Nothing published yet.</p>
+				) : (
+					<ul class="articles">
+						{articles.map((article) => (
+							<li>
+								<a class="card" href={`/writing/${article.id}/`}>
+									<time datetime={article.data.publishDate.toISOString()}>
+										{formatDate(article.data.publishDate)}
+									</time>
+									<span class="title">{article.data.title}</span>
+									<p class="description">{article.data.description}</p>
+									<div class="tags">
+										{article.data.tags.map((t) => (
+											<Pill>{t}</Pill>
+										))}
+									</div>
+								</a>
+							</li>
+						))}
+					</ul>
+				)
+			}
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.articles {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		padding: 1.5rem;
+		background: var(--gradient-subtle);
+		border: 1px solid var(--gray-800);
+		border-radius: 0.75rem;
+		box-shadow: var(--shadow-sm);
+		text-decoration: none;
+		color: var(--gray-200);
+		transition: box-shadow var(--theme-transition);
+	}
+
+	.card:hover,
+	.card:focus {
+		box-shadow: var(--shadow-md);
+	}
+
+	time {
+		font-size: var(--text-sm);
+		color: var(--gray-300);
+	}
+
+	.title {
+		font-family: var(--font-brand);
+		font-size: var(--text-xl);
+		font-weight: 600;
+		line-height: 1.2;
+		color: var(--gray-0);
+	}
+
+	.description {
+		max-width: 65ch;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	.tags :global(.pill) {
+		font-size: var(--text-sm);
+		padding: 0.25rem 0.75rem;
+	}
+
+	.empty {
+		color: var(--gray-300);
+	}
+
+	@media (min-width: 50em) {
+		.card {
+			padding: 2rem 2.5rem;
+			border-radius: 1.5rem;
+		}
+
+		.title {
+			font-size: var(--text-2xl);
+		}
+	}
+</style>
