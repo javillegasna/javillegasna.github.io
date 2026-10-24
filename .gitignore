@@ -23,8 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# superpowers design specs & plans (local only, not committed)
-docs/superpowers/
+# design specs & plans (local only, not committed)
+docs/local/
 
 # editor config (local, personal MCP setup)
 .vscode/mcp.json
